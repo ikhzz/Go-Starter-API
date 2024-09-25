@@ -1,0 +1,612 @@
+definitions:
+  models.EmptyResponse:
+    type: object
+  models.NotesData:
+    properties:
+      created_at:
+        example: timestamp
+        type: string
+      description:
+        example: description
+        type: string
+      title:
+        example: title
+        type: string
+      uid:
+        example: uuid
+        type: string
+    type: object
+  models.ReqDeleteNotes:
+    properties:
+      uid_notes:
+        type: string
+    required:
+    - uid_notes
+    type: object
+  models.ReqPostNotes:
+    properties:
+      description:
+        type: string
+      title:
+        type: string
+    required:
+    - title
+    type: object
+  models.ReqPostSignin:
+    properties:
+      email:
+        type: string
+      password:
+        minLength: 6
+        type: string
+    required:
+    - email
+    - password
+    type: object
+  models.ReqPutNotes:
+    properties:
+      description:
+        type: string
+      title:
+        type: string
+      uid_notes:
+        type: string
+    required:
+    - title
+    - uid_notes
+    type: object
+  models.ResSignin:
+    properties:
+      token:
+        example: token
+        type: string
+    type: object
+  models.SwaggoDeleteNotesResBadRequest:
+    properties:
+      data:
+        $ref: '#/definitions/models.EmptyResponse'
+      message:
+        example: valid param required
+        type: string
+      status:
+        example: false
+        type: boolean
+      status_code:
+        example: 400
+        type: integer
+      total_data:
+        example: 0
+        type: integer
+    type: object
+  models.SwaggoDeleteNotesResSuccess:
+    properties:
+      data:
+        $ref: '#/definitions/models.EmptyResponse'
+      message:
+        example: success
+        type: string
+      status:
+        example: true
+        type: boolean
+      status_code:
+        example: 200
+        type: integer
+      total_data:
+        example: 0
+        type: integer
+    type: object
+  models.SwaggoDeleteNotesResUnauthorized:
+    properties:
+      data:
+        $ref: '#/definitions/models.EmptyResponse'
+      message:
+        example: token is required
+        type: string
+      status:
+        example: false
+        type: boolean
+      status_code:
+        example: 401
+        type: integer
+      total_data:
+        example: 0
+        type: integer
+    type: object
+  models.SwaggoGetNotesResBadRequest:
+    properties:
+      data:
+        $ref: '#/definitions/models.EmptyResponse'
+      message:
+        example: valid param required
+        type: string
+      status:
+        example: false
+        type: boolean
+      status_code:
+        example: 400
+        type: integer
+      total_data:
+        example: 0
+        type: integer
+    type: object
+  models.SwaggoGetNotesResNotFound:
+    properties:
+      data:
+        $ref: '#/definitions/models.EmptyResponse'
+      message:
+        example: data not found
+        type: string
+      status:
+        example: false
+        type: boolean
+      status_code:
+        example: 400
+        type: integer
+      total_data:
+        example: 0
+        type: integer
+    type: object
+  models.SwaggoGetNotesResSuccess:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/models.NotesData'
+        type: array
+      message:
+        example: success
+        type: string
+      status:
+        example: true
+        type: boolean
+      status_code:
+        example: 200
+        type: integer
+      total_data:
+        example: 0
+        type: integer
+    type: object
+  models.SwaggoGetNotesResUnauthorized:
+    properties:
+      data:
+        $ref: '#/definitions/models.EmptyResponse'
+      message:
+        example: token is required
+        type: string
+      status:
+        example: false
+        type: boolean
+      status_code:
+        example: 401
+        type: integer
+      total_data:
+        example: 0
+        type: integer
+    type: object
+  models.SwaggoGetProfileResBadRequest:
+    properties:
+      data:
+        $ref: '#/definitions/models.EmptyResponse'
+      message:
+        example: valid param required
+        type: string
+      status:
+        example: false
+        type: boolean
+      status_code:
+        example: 400
+        type: integer
+      total_data:
+        example: 0
+        type: integer
+    type: object
+  models.SwaggoGetProfileResSuccess:
+    properties:
+      data:
+        $ref: '#/definitions/starterapi_modules_auth_models.UserData'
+      message:
+        example: success
+        type: string
+      status:
+        example: true
+        type: boolean
+      status_code:
+        example: 200
+        type: integer
+      total_data:
+        example: 0
+        type: integer
+    type: object
+  models.SwaggoGetProfileResUnauthorized:
+    properties:
+      data:
+        $ref: '#/definitions/models.EmptyResponse'
+      message:
+        example: data not found, token is required
+        type: string
+      status:
+        example: false
+        type: boolean
+      status_code:
+        example: 401
+        type: integer
+      total_data:
+        example: 0
+        type: integer
+    type: object
+  models.SwaggoPostNotesResBadRequest:
+    properties:
+      data:
+        $ref: '#/definitions/models.EmptyResponse'
+      message:
+        example: valid param required
+        type: string
+      status:
+        example: false
+        type: boolean
+      status_code:
+        example: 400
+        type: integer
+      total_data:
+        example: 0
+        type: integer
+    type: object
+  models.SwaggoPostNotesResSuccess:
+    properties:
+      data:
+        $ref: '#/definitions/models.EmptyResponse'
+      message:
+        example: success
+        type: string
+      status:
+        example: true
+        type: boolean
+      status_code:
+        example: 200
+        type: integer
+      total_data:
+        example: 0
+        type: integer
+    type: object
+  models.SwaggoPostNotesResUnauthorized:
+    properties:
+      data:
+        $ref: '#/definitions/models.EmptyResponse'
+      message:
+        example: token is required
+        type: string
+      status:
+        example: false
+        type: boolean
+      status_code:
+        example: 401
+        type: integer
+      total_data:
+        example: 0
+        type: integer
+    type: object
+  models.SwaggoPutNotesResBadRequest:
+    properties:
+      data:
+        $ref: '#/definitions/models.EmptyResponse'
+      message:
+        example: valid param required
+        type: string
+      status:
+        example: false
+        type: boolean
+      status_code:
+        example: 400
+        type: integer
+      total_data:
+        example: 0
+        type: integer
+    type: object
+  models.SwaggoPutNotesResSuccess:
+    properties:
+      data:
+        $ref: '#/definitions/models.EmptyResponse'
+      message:
+        example: success
+        type: string
+      status:
+        example: true
+        type: boolean
+      status_code:
+        example: 200
+        type: integer
+      total_data:
+        example: 0
+        type: integer
+    type: object
+  models.SwaggoPutNotesResUnauthorized:
+    properties:
+      data:
+        $ref: '#/definitions/models.EmptyResponse'
+      message:
+        example: token is required
+        type: string
+      status:
+        example: false
+        type: boolean
+      status_code:
+        example: 401
+        type: integer
+      total_data:
+        example: 0
+        type: integer
+    type: object
+  models.SwaggoSigninResBadRequest:
+    properties:
+      data:
+        $ref: '#/definitions/models.EmptyResponse'
+      message:
+        example: valid param required, password missmatch
+        type: string
+      status:
+        example: false
+        type: boolean
+      status_code:
+        example: 400
+        type: integer
+      total_data:
+        example: 0
+        type: integer
+    type: object
+  models.SwaggoSigninResNotFound:
+    properties:
+      data:
+        $ref: '#/definitions/models.EmptyResponse'
+      message:
+        example: error get user
+        type: string
+      status:
+        example: false
+        type: boolean
+      status_code:
+        example: 404
+        type: integer
+      total_data:
+        example: 0
+        type: integer
+    type: object
+  models.SwaggoSigninResSuccess:
+    properties:
+      data:
+        $ref: '#/definitions/models.ResSignin'
+      message:
+        example: success
+        type: string
+      status:
+        example: true
+        type: boolean
+      status_code:
+        example: 200
+        type: integer
+      total_data:
+        example: 0
+        type: integer
+    type: object
+  starterapi_modules_auth_models.UserData:
+    properties:
+      email:
+        example: example@mail.com
+        type: string
+      uid:
+        example: uid
+        type: string
+      username:
+        example: user_example
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /auth/profile:
+    get:
+      description: api to get profile user
+      parameters:
+      - enum:
+        - WEB
+        - IPHONE
+        - ANDROID
+        in: query
+        name: device
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.SwaggoGetProfileResSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.SwaggoGetProfileResBadRequest'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/models.SwaggoGetProfileResUnauthorized'
+      security:
+      - BearerAuth: []
+      summary: GetProfile
+      tags:
+      - Authentication
+  /auth/signin:
+    post:
+      description: sign in api
+      parameters:
+      - description: Request Body signin
+        in: body
+        name: PostSignin
+        required: true
+        schema:
+          $ref: '#/definitions/models.ReqPostSignin'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.SwaggoSigninResSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.SwaggoSigninResBadRequest'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/models.SwaggoSigninResNotFound'
+      summary: Signin
+      tags:
+      - Authentication
+  /notes:
+    delete:
+      description: api to delete notes
+      parameters:
+      - description: Request Param Delete Notes
+        in: body
+        name: DeleteNotes
+        required: true
+        schema:
+          $ref: '#/definitions/models.ReqDeleteNotes'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.SwaggoDeleteNotesResSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.SwaggoDeleteNotesResBadRequest'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/models.SwaggoDeleteNotesResUnauthorized'
+      security:
+      - BearerAuth: []
+      summary: Delete Notes
+      tags:
+      - Notes
+    get:
+      description: api to get all notes
+      parameters:
+      - example: 0
+        in: query
+        name: all
+        type: integer
+      - example: title
+        in: query
+        name: keyword
+        type: string
+      - example: 10
+        in: query
+        name: limit
+        type: integer
+      - example: 0
+        in: query
+        name: offset
+        type: integer
+      - example: title
+        in: query
+        name: order
+        type: string
+      - enum:
+        - asc
+        - desc
+        example: asc
+        in: query
+        name: order_by
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.SwaggoGetNotesResSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.SwaggoGetNotesResBadRequest'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/models.SwaggoGetNotesResUnauthorized'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/models.SwaggoGetNotesResNotFound'
+      security:
+      - BearerAuth: []
+      summary: Get All Notes
+      tags:
+      - Notes
+    post:
+      description: api to create notes
+      parameters:
+      - description: Request Param Post Notes
+        in: body
+        name: PostNotes
+        required: true
+        schema:
+          $ref: '#/definitions/models.ReqPostNotes'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.SwaggoPostNotesResSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.SwaggoPostNotesResBadRequest'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/models.SwaggoPostNotesResUnauthorized'
+      security:
+      - BearerAuth: []
+      summary: Post Notes
+      tags:
+      - Notes
+    put:
+      description: api to update notes
+      parameters:
+      - description: Request Param Put Notes
+        in: body
+        name: PutNotes
+        required: true
+        schema:
+          $ref: '#/definitions/models.ReqPutNotes'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.SwaggoPutNotesResSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.SwaggoPutNotesResBadRequest'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/models.SwaggoPutNotesResUnauthorized'
+      security:
+      - BearerAuth: []
+      summary: Put Notes
+      tags:
+      - Notes
+securityDefinitions:
+  BearerAuth:
+    description: Type "Bearer" followed by a space and JWT token.
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"

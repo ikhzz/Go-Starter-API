@@ -1,23 +1,23 @@
 {
-  "mode": "development",
-    "address": ":7010",
+    "mode": "development",
+    "address": ":6060",
     "database": {
         "mysql": {
-            "host": "",
-            "port": "",
-            "user": "",
-            "pass": "",
-            "db": "",
+            "host": "MYSQL_HOST",
+            "port": "MYSQL_PORT",
+            "user": "MYSQL_USER",
+            "pass": "MYSQL_PASS",
+            "db": "MYSQL_DBNAME",
             "parseTime": "1"
         },
         "mongo": {
-            "host": "",
-            "port": "",
-            "user": "",
-            "pass": "",
-            "db": "",
-            "dbauth": "",
-            "url": ""
+            "host": "MYSQL_HOST",
+            "port": "MYSQL_PORT",
+            "user": "MYSQL_USER",
+            "pass": "MYSQL_PASS",
+            "db": "MYSQL_DBNAME",
+            "dbauth": "MYSQL_DBAUTH",
+            "url": "MSYQL_URL"
         }
     },
     "smtp": {
@@ -30,26 +30,26 @@
         "password": "SMTP_PASSWORD",
         "secure": "SMTP_SECURE"
     },
-    "context":{
-        "timeout": 10
+    "timeout": {
+        "context": 10,
+        "forget_password_token": 180000,
+        "jwt":2592000
     },
-    "forget_password_token_expired": 180000,
-    "length_response_list": 10,
-    "jwt":{
-        "key": "YourSecret",
-        "expired": 2592000
+    "key": {
+        "jwt": "JWT_KEY",
+        "admin_cred": {
+            "email": "ADMIN_EMAIL",
+            "username": "ADMIN_USERNAME",
+            "password": "ADMIN_PASSWORD
+        },
+        "default_lang": "en",
+        "timezone": "Asia/Jakarta"
     },
-    "default_lang": "id",
-    "timezone": "Asia/Jakarta",
     "default_unhandled_error": "Unhandled error. Please try again.",
-    "route": {
-        "/v1/expampleRouter":1,
-        "tokenCheck/v1/exampleRouter":1,
-    },
     "cloudinary": {
-        "user":"",
-        "key":"",
-        "secret":"",
-        "projectName": ""
+        "user":"CLOUDINARY_USER",
+        "key":"CLOUDINARY_KEY",
+        "secret":"CLOUDINARY_SECRET",
+        "projectName": "CLOUDINARY_NAME"
     }
 }
